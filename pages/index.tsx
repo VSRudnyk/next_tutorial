@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Htag, Button, Paragraph, Tag, Rating } from '../components';
+import {
+  Htag,
+  Button,
+  Paragraph,
+  Tag,
+  Rating,
+  Input,
+  Textarea,
+} from '../components';
 import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { GetStaticProps } from 'next';
@@ -9,15 +17,9 @@ function Home({ menu }: HomeProps): JSX.Element {
   const [counter, setCounter] = useState<number>(0);
   const [rating, setRating] = useState<number>(4);
   useEffect(() => {
-    console.log('Counter: ' + counter);
     return function cleanup() {
-      console.log('Unmount');
     };
   });
-
-  useEffect(() => {
-    console.log('Mounted');
-  }, []);
 
   return (
     <>
@@ -42,6 +44,8 @@ function Home({ menu }: HomeProps): JSX.Element {
       <Tag color='green'>Small green</Tag>
       <Tag color='primary'>Small primary</Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
+      <Input placeholder='test' />
+      <Textarea placeholder='Текст отзыва' />
     </>
   );
 }
