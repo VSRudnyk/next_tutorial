@@ -1,18 +1,12 @@
 import styles from './TopPageComponent.module.css';
 import { TopPageComponentProps } from './TopPageComponent.props';
-import {
-  Advantages,
-  HhData,
-  Htag,
-  Paragraph,
-  Product,
-  Sort,
-  Tag,
-} from '../../components';
+import { Advantages, HhData, Htag, Product, Sort, Tag } from '../../components';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.props';
 import { useEffect, useReducer } from 'react';
 import { sortReducer } from './sort.reducer';
+import { motion } from 'framer-motion';
+import { useScrollY } from '../../hooks/useScrollY';
 
 export const TopPageComponent = ({
   page,
@@ -23,6 +17,8 @@ export const TopPageComponent = ({
     sortReducer,
     { products, sort: SortEnum.Rating }
   );
+
+  const y = useScrollY();
 
   const setSort = (sort: SortEnum) => {
     dispathSort({ type: sort });
@@ -45,7 +41,11 @@ export const TopPageComponent = ({
       </div>
       <div>
         {sortedProducts &&
-          sortedProducts.map((p) => <Product key={p._id} product={p} />)}
+          sortedProducts.map((p) => (
+            <motion.div layout key={p._id}>
+              <Product product={p} />
+            </motion.div>
+          ))}
       </div>
       <div className={styles.hhTitle}>
         <Htag tag='h2'>Вакансии - {page.category}</Htag>
