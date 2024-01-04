@@ -5,7 +5,6 @@ import { TopLevelCategory } from '../../interfaces/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.props';
 import { useEffect, useReducer } from 'react';
 import { sortReducer } from './sort.reducer';
-import { motion } from 'framer-motion';
 import { useScrollY } from '../../hooks/useScrollY';
 
 export const TopPageComponent = ({
@@ -33,18 +32,16 @@ export const TopPageComponent = ({
       <div className={styles.title}>
         <Htag tag='h1'>{page.title}</Htag>
         {products && (
-          <Tag color='grey' size='m'>
+          <Tag color='grey' size='m' aria-label={products.length + 'элементов'}>
             {products.length}
           </Tag>
         )}
         <Sort sort={sort} setSort={setSort} />
       </div>
-      <div>
+      <div role='list'>
         {sortedProducts &&
           sortedProducts.map((p) => (
-            <motion.div layout key={p._id}>
-              <Product product={p} />
-            </motion.div>
+            <Product role='listitem' key={p._id} product={p} />
           ))}
       </div>
       <div className={styles.hhTitle}>

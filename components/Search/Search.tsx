@@ -1,10 +1,10 @@
 import { SearchProps } from './Search.props';
-import cn from 'classnames';
 import styles from './Search.module.css';
+import GlassIcon from './glass.svg';
+import cn from 'classnames';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
-import { useState } from 'react';
-import GlassIcon from './glass.svg';
+import { useState, KeyboardEvent } from 'react';
 import { useRouter } from 'next/router';
 
 export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
@@ -27,7 +27,7 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
   };
 
   return (
-    <div className={cn(className, styles.search)} {...props}>
+    <form className={cn(className, styles.search)} {...props} role='search'>
       <Input
         className={styles.input}
         placeholder='Поиск...'
@@ -36,12 +36,13 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         onKeyDown={handleKeyDown}
       />
       <Button
-        className={styles.button}
         appearance='primary'
+        className={styles.button}
         onClick={goToSearch}
+        aria-label='Искать по сайту'
       >
         <GlassIcon />
       </Button>
-    </div>
+    </form>
   );
 };
