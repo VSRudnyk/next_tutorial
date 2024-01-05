@@ -4,7 +4,6 @@
     [start] 70px [logoend] 30px [titlestart]
     calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px
     [creditstart] auto [creditend] 40px [ratestart] auto [end];
-
   margin-top: 30px;
   padding: 30px;
 }
@@ -52,7 +51,6 @@
 
 .title {
   align-self: flex-end;
-
   font-size: 20px;
   font-weight: 600;
   line-height: 27px;
@@ -65,7 +63,6 @@
 .price,
 .credit {
   align-self: flex-end;
-
   font-size: 20px;
   line-height: 27px;
 }
@@ -153,7 +150,7 @@
   color: var(--primary);
 }
 
-@media screen and (max-width: 1320px) {
+@media screen and (width <= 1320px) {
   .product {
     grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
     grid-template-areas:
@@ -168,6 +165,7 @@
       'hr2 hr2 hr2 hr2 hr2 hr2 hr2'
       'actions actions actions actions actions actions actions';
   }
+
   .logo {
     grid-area: logo;
     margin-bottom: 20px;
@@ -216,7 +214,6 @@
 
   .feature {
     grid-area: feature;
-
     margin-bottom: 20px;
   }
 
@@ -233,7 +230,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (width <= 640px) {
   .product {
     grid-template-columns: 70px 30px 1fr;
     grid-template-areas:
@@ -263,7 +260,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .product {
     grid-template-columns: 1fr;
     grid-template-areas:

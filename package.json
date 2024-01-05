@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "export": "next export",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
@@ -19,7 +20,8 @@
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.49.2"
+    "react-hook-form": "^7.49.2",
+    "react-yandex-metrika": "^2.6.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

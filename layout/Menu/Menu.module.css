@@ -26,12 +26,9 @@
 
 .secondLevel {
   margin-bottom: 10px;
-
   cursor: pointer;
   text-transform: uppercase;
-
   color: var(--gray-dark);
-
   font-weight: 300;
   font-size: 12px;
   background: none;
@@ -60,9 +57,7 @@
 .thirdLevel {
   margin-bottom: 10px;
   display: block;
-
   cursor: pointer;
-
   color: var(--gray-dark);
   font-weight: 500;
   font-size: 14px;
